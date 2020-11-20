@@ -2,11 +2,13 @@ package ua.kpi.comsys.iv7213
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ListView
-import org.json.JSONArray
-import org.json.JSONObject
-import ua.kpi.comsys.iv7213.adapters.CustomMovieListAdapter
+
+import androidx.viewpager.widget.ViewPager
+import com.google.android.material.tabs.TabLayout
+
 import ua.kpi.comsys.iv7213.adapters.ViewPagerAdapter
+import ua.kpi.comsys.iv7213.fragments.AnotherOneFragment
+import ua.kpi.comsys.iv7213.fragments.MovieListFragment
 
 
 class MainActivity : AppCompatActivity() {
@@ -14,38 +16,23 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val listView = findViewById<ListView>(R.id.movieListView)
-
-        val movies = parseJSON()
-
-        listView.adapter = CustomMovieListAdapter(this, movies)
+        setupTabs()
     }
 
-    private fun parseJSON(): ArrayList<Movie> {
-        val inputStream = assets.open("MoviesList.json")
-        val size = inputStream.available()
-        val buffer = ByteArray(size)
-        inputStream.read(buffer)
-        inputStream.close()
+    private fun setupTabs() {
+        val adapter = ViewPagerAdapter(supportFragmentManager)
+        adapter.addFragment(MovieListFragment(), "Movies")
+        adapter.addFragment(AnotherOneFragment(), "tbc")
 
-        val stringJSON = String(buffer, Charsets.UTF_8)
+        val viewPager = findViewById<ViewPager>(R.id.viewPager)
+        val tabs = findViewById<TabLayout>(R.id.tabs)
 
-        val movies: ArrayList<Movie> = ArrayList()
+        viewPager.adapter = adapter
+        tabs.setupWithViewPager(viewPager)
 
-        val moviesJSON: JSONArray = JSONObject(stringJSON).getJSONArray("Search")
-
-        for (i in 0 until moviesJSON.length()) {
-            val movieObj = moviesJSON.getJSONObject(i)
-            val title = movieObj.getString("title")
-            val year = movieObj.getString("year")
-            val imdbId = movieObj.getString("imdbId")
-            val type = movieObj.getString("type")
-            val poster = movieObj.getString("poster")
-
-            movies.add(Movie(title, year, imdbId, type, poster))
-        }
-
-        return movies
+//        tabs.getTabAt(0)!!.setIcon(R.drawable.ic_baseline_video_library_24)
+//        tabs.getTabAt(1)!!.setIcon(R.drawable.ic_baseline_block_24)
     }
+
 }
 
