@@ -12,30 +12,49 @@ import ua.kpi.comsys.iv7213.Movie
 import ua.kpi.comsys.iv7213.R
 import java.io.FileNotFoundException
 
-class CustomMovieListAdapter(private val context: Context, private val movies: ArrayList<Movie>) :
+class CustomMovieListAdapter(private val movieList: ArrayList<Movie>) :
     BaseAdapter() {
 
-    private val movieList: ArrayList<Movie> = movies
-
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
-        val layoutInflater = LayoutInflater.from(context)
-        val item = layoutInflater.inflate(R.layout.movie_item, parent, false)
+        val item: View
 
+        if (convertView == null) {
+            val layoutInflater = LayoutInflater.from(parent!!.context)
+            item = layoutInflater.inflate(R.layout.movie_item, parent, false)
 
-        item.findViewById<TextView>(R.id.movieTitle).text = movieList[position].title
-        item.findViewById<TextView>(R.id.movieYear).text = movieList[position].year
-        item.findViewById<TextView>(R.id.movieType).text = movieList[position].type
+            val title = item.findViewById<TextView>(R.id.movieTitle)
+            val year = item.findViewById<TextView>(R.id.movieYear)
+            val type = item.findViewById<TextView>(R.id.movieType)
+            val poster = item.findViewById<ImageView>(R.id.moviePoster)
+            val movieHolder = MovieHolder(title, year, type, poster)
+
+            item.tag = movieHolder
+        } else {
+            item = convertView
+        }
+
+        val movieHolder = item.tag as MovieHolder
+        movieHolder.title.text = movieList[position].title
+        movieHolder.year.text = movieList[position].year
+        movieHolder.type.text = movieList[position].type
 
         try {
-            val imageFile = context.assets.open("Posters/${movieList[position].poster}")
+            val imageFile = parent!!.context.assets.open("Posters/${movieList[position].poster}")
             val drawable: Drawable = Drawable.createFromStream(imageFile, null)
-            item.findViewById<ImageView>(R.id.moviePoster).setImageDrawable(drawable)
+            movieHolder.poster.setImageDrawable(drawable)
         } catch (e: FileNotFoundException) {
 
         }
 
         return item
     }
+
+    private class MovieHolder(
+        val title: TextView,
+        val year: TextView,
+        val type: TextView,
+        val poster: ImageView
+    )
 
     override fun getItem(position: Int): Any {
         return "Test string"

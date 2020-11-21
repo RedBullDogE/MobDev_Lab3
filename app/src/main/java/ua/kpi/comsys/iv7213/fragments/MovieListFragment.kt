@@ -34,7 +34,7 @@ class MovieListFragment() : Fragment() {
 
         val movies = parseJSON()
 
-        listView.adapter = CustomMovieListAdapter(context!!, movies)
+        listView.adapter = CustomMovieListAdapter(movies)
     }
 
     private fun parseJSON(): ArrayList<Movie> {
