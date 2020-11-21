@@ -1,6 +1,7 @@
 package ua.kpi.comsys.iv7213.adapters
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import ua.kpi.comsys.iv7213.Movie
 import ua.kpi.comsys.iv7213.R
+import ua.kpi.comsys.iv7213.activities.MovieDetailsActivity
 import java.io.FileNotFoundException
 
 class CustomMovieListAdapter(private val movieList: ArrayList<Movie>) :
@@ -29,6 +31,12 @@ class CustomMovieListAdapter(private val movieList: ArrayList<Movie>) :
             val movieHolder = MovieHolder(title, year, type, poster)
 
             item.tag = movieHolder
+
+            item.setOnClickListener {
+                val intent = Intent(parent.context, MovieDetailsActivity::class.java)
+
+                item.context.startActivity(intent)
+            }
         } else {
             item = convertView
         }
@@ -67,5 +75,4 @@ class CustomMovieListAdapter(private val movieList: ArrayList<Movie>) :
     override fun getCount(): Int {
         return movieList.size
     }
-
 }
