@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activityDetails"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/moviePosterDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:contentDescription="@string/movie_poster"
+            android:src="@mipmap/ic_launcher"
+            android:layout_weight="2"/>
+
+        <TextView
+            android:id="@+id/movieTitleDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="@string/title"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/movieYearDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="@string/year"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/movieID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="@string/imdb_id"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/movieTypeDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="@string/type"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/movieRated"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="@string/rated"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/movieReleased"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="@string/released"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/movieRuntime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="@string/running_time"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/movieGenre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="@string/genre"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/movieDirector"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="@string/director"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/movieWriter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="@string/writer"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/movieActors"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="@string/actors"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/moviePlot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="@string/plot"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/movieLanguage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="@string/language"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/movieCountry"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="@string/country"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/movieAwards"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="@string/awards"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/movieRating"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="@string/rating"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/movieVotes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="@string/votes"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/movieProduction"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="@string/production"
+            android:textColor="#000000" />
+    </LinearLayout>
+</ScrollView>

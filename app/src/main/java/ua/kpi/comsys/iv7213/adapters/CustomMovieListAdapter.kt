@@ -3,6 +3,7 @@ package ua.kpi.comsys.iv7213.adapters
 import android.content.Context
 import android.content.Intent
 import android.graphics.drawable.Drawable
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -31,12 +32,6 @@ class CustomMovieListAdapter(private val movieList: ArrayList<Movie>) :
             val movieHolder = MovieHolder(title, year, type, poster)
 
             item.tag = movieHolder
-
-            item.setOnClickListener {
-                val intent = Intent(parent.context, MovieDetailsActivity::class.java)
-
-                item.context.startActivity(intent)
-            }
         } else {
             item = convertView
         }
@@ -51,7 +46,14 @@ class CustomMovieListAdapter(private val movieList: ArrayList<Movie>) :
             val drawable: Drawable = Drawable.createFromStream(imageFile, null)
             movieHolder.poster.setImageDrawable(drawable)
         } catch (e: FileNotFoundException) {
+            movieHolder.poster.setImageResource(R.mipmap.ic_launcher)
+        }
 
+        item.setOnClickListener {
+            val intent = Intent(parent!!.context, MovieDetailsActivity::class.java)
+            intent.putExtra("EXTRA_MOVIE_ID", movieList[position].imdbId)
+
+            item.context.startActivity(intent)
         }
 
         return item
