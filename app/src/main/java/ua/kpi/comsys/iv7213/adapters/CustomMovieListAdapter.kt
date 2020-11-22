@@ -1,9 +1,7 @@
 package ua.kpi.comsys.iv7213.adapters
 
-import android.content.Context
 import android.content.Intent
 import android.graphics.drawable.Drawable
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,9 +12,12 @@ import ua.kpi.comsys.iv7213.Movie
 import ua.kpi.comsys.iv7213.R
 import ua.kpi.comsys.iv7213.activities.MovieDetailsActivity
 import java.io.FileNotFoundException
+import kotlin.collections.ArrayList
 
 class CustomMovieListAdapter(private val movieList: ArrayList<Movie>) :
     BaseAdapter() {
+
+    private var displayMovieList: ArrayList<Movie> = movieList.clone() as ArrayList<Movie>
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         val item: View
@@ -37,12 +38,13 @@ class CustomMovieListAdapter(private val movieList: ArrayList<Movie>) :
         }
 
         val movieHolder = item.tag as MovieHolder
-        movieHolder.title.text = movieList[position].title
-        movieHolder.year.text = movieList[position].year
-        movieHolder.type.text = movieList[position].type
+        movieHolder.title.text = displayMovieList[position].title
+        movieHolder.year.text = displayMovieList[position].year
+        movieHolder.type.text = displayMovieList[position].type
 
         try {
-            val imageFile = parent!!.context.assets.open("Posters/${movieList[position].poster}")
+            val imageFile =
+                parent!!.context.assets.open("Posters/${displayMovieList[position].poster}")
             val drawable: Drawable = Drawable.createFromStream(imageFile, null)
             movieHolder.poster.setImageDrawable(drawable)
         } catch (e: FileNotFoundException) {
@@ -51,7 +53,7 @@ class CustomMovieListAdapter(private val movieList: ArrayList<Movie>) :
 
         item.setOnClickListener {
             val intent = Intent(parent!!.context, MovieDetailsActivity::class.java)
-            intent.putExtra("EXTRA_MOVIE_ID", movieList[position].imdbId)
+            intent.putExtra("EXTRA_MOVIE_ID", displayMovieList[position].imdbId)
 
             item.context.startActivity(intent)
         }
@@ -75,6 +77,22 @@ class CustomMovieListAdapter(private val movieList: ArrayList<Movie>) :
     }
 
     override fun getCount(): Int {
-        return movieList.size
+        return displayMovieList.size
+    }
+
+    fun filter(query: String) {
+        if (query.isNotEmpty()) {
+            displayMovieList.clear()
+
+            movieList.forEach {
+                if (it.title.toLowerCase().contains(query.toLowerCase())) {
+                    displayMovieList.add(it)
+                }
+            }
+        } else {
+            displayMovieList.clear()
+            displayMovieList.addAll(movieList)
+        }
+        notifyDataSetChanged()
     }
 }

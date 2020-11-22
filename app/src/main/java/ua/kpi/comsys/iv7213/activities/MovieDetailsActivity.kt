@@ -22,44 +22,74 @@ class MovieDetailsActivity : AppCompatActivity() {
 
     private fun setupDetails() {
         val imdbID: String? = intent.getStringExtra("EXTRA_MOVIE_ID")
+        val viewsList: ArrayList<Int> = arrayListOf(
+            R.id.movieTitleDetails,
+            R.id.movieYearDetails,
+            R.id.movieRated,
+            R.id.movieReleased,
+            R.id.movieRuntime,
+            R.id.movieGenre,
+            R.id.movieDirector,
+            R.id.movieWriter,
+            R.id.movieActors,
+            R.id.moviePlot,
+            R.id.movieLanguage,
+            R.id.movieCountry,
+            R.id.movieAwards,
+            R.id.movieRating,
+            R.id.movieVotes,
+            R.id.movieID,
+            R.id.movieTypeDetails,
+            R.id.movieProduction
+        )
 
-        if (imdbID == "noid" || imdbID == null) return
-
-        val result: MovieDetails? = parseJSON(imdbID)
-
-        if (result == null) {
+        if (imdbID == "noid" || imdbID == null) {
             Toast.makeText(applicationContext, "Not found", Toast.LENGTH_SHORT).show()
             finish()
             return
         }
 
+        val result: MovieDetails? = parseJSON(imdbID)
+
+        if (result == null) {
+            Toast.makeText(applicationContext, "Something goes wrong", Toast.LENGTH_SHORT).show()
+            finish()
+            return
+        }
+
+        val resultFields: ArrayList<String> = arrayListOf(
+            result.title,
+            result.year,
+            result.rated,
+            result.released,
+            result.runtime,
+            result.genre,
+            result.director,
+            result.writer,
+            result.actors,
+            result.plot,
+            result.language,
+            result.country,
+            result.awards,
+            result.imdbRating,
+            result.imdbVotes,
+            result.imdbID,
+            result.type,
+            result.production
+        )
+
         try {
             val imageFile = assets.open("Posters/${result.poster}")
             val drawable: Drawable = Drawable.createFromStream(imageFile, null)
             findViewById<ImageView>(R.id.moviePosterDetails).setImageDrawable(drawable)
-
         } catch (e: FileNotFoundException) {
 
         }
 
-        findViewById<TextView>(R.id.movieTitleDetails).append(result.title)
-        findViewById<TextView>(R.id.movieYearDetails).append(result.year)
-        findViewById<TextView>(R.id.movieRated).append(result.rated)
-        findViewById<TextView>(R.id.movieReleased).append(result.released)
-        findViewById<TextView>(R.id.movieRuntime).append(result.runtime)
-        findViewById<TextView>(R.id.movieGenre).append(result.genre)
-        findViewById<TextView>(R.id.movieDirector).append(result.director)
-        findViewById<TextView>(R.id.movieWriter).append(result.writer)
-        findViewById<TextView>(R.id.movieActors).append(result.actors)
-        findViewById<TextView>(R.id.moviePlot).append(result.plot)
-        findViewById<TextView>(R.id.movieLanguage).append(result.language)
-        findViewById<TextView>(R.id.movieCountry).append(result.country)
-        findViewById<TextView>(R.id.movieAwards).append(result.awards)
-        findViewById<TextView>(R.id.movieRating).append(result.imdbRating)
-        findViewById<TextView>(R.id.movieVotes).append(result.imdbVotes)
-        findViewById<TextView>(R.id.movieID).append(result.imdbID)
-        findViewById<TextView>(R.id.movieTypeDetails).append(result.type)
-        findViewById<TextView>(R.id.movieProduction).append(result.production)
+        viewsList.forEachIndexed { index, element ->
+            findViewById<TextView>(element).append(resultFields[index])
+        }
+
     }
 
     private fun parseJSON(imdbId: String): MovieDetails? {

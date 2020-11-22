@@ -1,10 +1,8 @@
 package ua.kpi.comsys.iv7213.fragments
 
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.ListView
 import org.json.JSONArray
 import org.json.JSONObject
@@ -14,10 +12,6 @@ import ua.kpi.comsys.iv7213.adapters.CustomMovieListAdapter
 
 
 class MovieListFragment() : Fragment() {
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
