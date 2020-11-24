@@ -95,4 +95,10 @@ class CustomMovieListAdapter(private val movieList: ArrayList<Movie>) :
         }
         notifyDataSetChanged()
     }
+
+    fun addMovie(newMovie: Movie) {
+        movieList.add(newMovie)
+        displayMovieList = movieList.clone() as ArrayList<Movie>
+        notifyDataSetChanged()
+    }
 }

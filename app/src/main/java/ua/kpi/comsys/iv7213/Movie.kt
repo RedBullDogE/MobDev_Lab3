@@ -1,14 +1,15 @@
 package ua.kpi.comsys.iv7213
 
 import com.beust.klaxon.Json
+import java.io.Serializable
 
-data class Movie(
+data class Movie (
     val title: String,
     val year: String,
     val imdbId: String,
     val type: String,
     val poster: String
-)
+): Serializable
 
 data class MovieDetails(
     @Json("Title")

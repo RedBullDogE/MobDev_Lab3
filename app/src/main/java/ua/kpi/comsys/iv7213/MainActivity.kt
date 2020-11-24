@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.widget.ListView
-import android.widget.SearchView
+import androidx.appcompat.widget.SearchView
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.tabs.TabLayout
 import ua.kpi.comsys.iv7213.adapters.CustomMovieListAdapter

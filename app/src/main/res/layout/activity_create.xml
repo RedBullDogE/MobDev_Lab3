@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <TextView
+        android:id="@+id/movieTitleFormLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:text="Movie Title" />
+
+    <EditText
+        android:id="@+id/movieTitleForm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autofillHints="enter movie title"
+        android:ems="10"
+        android:hint="Title..."
+        android:inputType="text" />
+
+    <TextView
+        android:id="@+id/movieYearFormLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:text="Release Year" />
+
+    <EditText
+        android:id="@+id/movieYearForm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autofillHints="enter movie year"
+        android:ems="10"
+        android:hint="Release year..."
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/movieTypeFormText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:text="Type" />
+
+    <EditText
+        android:id="@+id/movieTypeForm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autofillHints="enter movie type"
+        android:ems="10"
+        android:hint="Type..."
+        android:inputType="text" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add"
+        android:layout_gravity="center"
+        android:id="@+id/addMovieButton"
+        />
+</LinearLayout>
