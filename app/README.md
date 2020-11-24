@@ -1,4 +1,6 @@
-# Mobile development | LW3
+# Mobile development
+
+## LW3
 
 App consists of MainActivity with ViewPagerAdapter which displays two fragments (movie list - MovieListFragment and blank - AnotherOneFragment).
 
@@ -9,5 +11,20 @@ App consists of MainActivity with ViewPagerAdapter which displays two fragments 
 
 The main problem was to set up adapters to work with tabs (viewpager) and fragments and understand the logic of their work
 
-## Results
-[Video](https://drive.google.com/file/d/1dR9lF5dQ98jW2x74JJYd5rtF1wszq5l1/view?usp=sharing)
+### Results
+[Video with results for LW3](https://drive.google.com/file/d/1dR9lF5dQ98jW2x74JJYd5rtF1wszq5l1/view?usp=sharing)
+
+
+## LW4
+
+App consists of MainActivity with ViewPagerAdapter which displays two fragments (movie list - MovieListFragment and blank - AnotherOneFragment).
+
+1. MovieDetailsActivity was created for movie details window.
+2. Was added new extended class for movies - MovieDetails.
+3. MovieAddActivity - activity for adding new movies.
+4. SearchView for searching movies by title was added on the top bar.
+5. Deleting movies was implemented with long click on list item.
+
+### Results
+
+[Video with results for LW4](https://drive.google.com/file/d/1AUkPlVz5T7H5wljTe38p7n_m8pIzTQXd/view?usp=sharing)
