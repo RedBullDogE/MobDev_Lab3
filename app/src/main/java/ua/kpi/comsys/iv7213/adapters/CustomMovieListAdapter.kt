@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import ua.kpi.comsys.iv7213.Movie
 import ua.kpi.comsys.iv7213.R
 import ua.kpi.comsys.iv7213.activities.MovieDetailsActivity
@@ -56,6 +58,26 @@ class CustomMovieListAdapter(private val movieList: ArrayList<Movie>) :
             intent.putExtra("EXTRA_MOVIE_ID", displayMovieList[position].imdbId)
 
             item.context.startActivity(intent)
+        }
+
+        item.setOnLongClickListener {
+            val builder = AlertDialog.Builder(parent!!.context)
+            builder.setTitle("Delete movie")
+            builder.setMessage("Are you really sure you want to delete this movie?")
+
+            builder.setPositiveButton(android.R.string.yes) { dialog, which ->
+                val removedMovie = displayMovieList.removeAt(position)
+                movieList.remove(removedMovie)
+                notifyDataSetChanged()
+            }
+
+            builder.setNegativeButton(android.R.string.no) { dialog, which ->
+
+            }
+
+            builder.show()
+
+            true
         }
 
         return item

@@ -12,7 +12,6 @@ import org.json.JSONObject
 import ua.kpi.comsys.iv7213.Movie
 import ua.kpi.comsys.iv7213.R
 import ua.kpi.comsys.iv7213.activities.MovieAddActivity
-import ua.kpi.comsys.iv7213.activities.MovieDetailsActivity
 import ua.kpi.comsys.iv7213.adapters.CustomMovieListAdapter
 
 
