@@ -28,3 +28,13 @@ App consists of MainActivity with ViewPagerAdapter which displays two fragments 
 ### Results
 
 [Video with results for LW4](https://drive.google.com/file/d/1AUkPlVz5T7H5wljTe38p7n_m8pIzTQXd/view?usp=sharing)
+
+## LW5
+
+Was added new fragment displaying the gallery. 
+
+1. User can push own pictures by tapping the add button.
+2. The Gallery has a predefined structure (1 variant).
+3. Pictures are placed completely filling their space without losing proportions, although they can be cropped.
+
+[Videw with the results for LW5](https://drive.google.com/file/d/1zwopBk-uS0djdkQmlX4ENFrJTto27YMb/view?usp=sharing)
