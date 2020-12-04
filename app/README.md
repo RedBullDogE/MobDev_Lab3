@@ -37,4 +37,6 @@ Was added new fragment displaying the gallery.
 2. The Gallery has a predefined structure (1 variant).
 3. Pictures are placed completely filling their space without losing proportions, although they can be cropped.
 
-[Videw with the results for LW5](https://drive.google.com/file/d/1zwopBk-uS0djdkQmlX4ENFrJTto27YMb/view?usp=sharing)
+### Results
+
+[Video with the results for LW5](https://drive.google.com/file/d/1zwopBk-uS0djdkQmlX4ENFrJTto27YMb/view?usp=sharing)
