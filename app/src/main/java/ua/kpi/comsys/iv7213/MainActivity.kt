@@ -10,7 +10,7 @@ import androidx.viewpager.widget.ViewPager
 import com.google.android.material.tabs.TabLayout
 import ua.kpi.comsys.iv7213.adapters.CustomMovieListAdapter
 import ua.kpi.comsys.iv7213.adapters.ViewPagerAdapter
-import ua.kpi.comsys.iv7213.fragments.AnotherOneFragment
+import ua.kpi.comsys.iv7213.fragments.GalleryFragment
 import ua.kpi.comsys.iv7213.fragments.MovieListFragment
 
 
@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity() {
     private fun setupTabs() {
         val adapter = ViewPagerAdapter(supportFragmentManager)
         adapter.addFragment(MovieListFragment(), "Movies")
-        adapter.addFragment(AnotherOneFragment(), "tbc")
+        adapter.addFragment(GalleryFragment(), "Gallery")
 
         val viewPager = findViewById<ViewPager>(R.id.viewPager)
         val tabs = findViewById<TabLayout>(R.id.tabs)
@@ -61,7 +61,7 @@ class MainActivity : AppCompatActivity() {
         tabs.setupWithViewPager(viewPager)
 
         tabs.getTabAt(0)!!.setIcon(R.drawable.ic_baseline_video_library_24)
-        tabs.getTabAt(1)!!.setIcon(R.drawable.ic_baseline_block_24)
+        tabs.getTabAt(1)!!.setIcon(R.drawable.ic_baseline_perm_media_24)
     }
 
 }

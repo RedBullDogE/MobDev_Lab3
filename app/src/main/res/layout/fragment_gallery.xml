@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".fragments.GalleryFragment">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/image2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginEnd="2dp"
+                android:layout_marginBottom="2dp"
+                android:layout_weight="1"
+                android:contentDescription="Gallery Picture"
+                android:scaleType="centerCrop" />
+
+            <ImageView
+                android:id="@+id/image3"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginEnd="2dp"
+                android:layout_marginBottom="2dp"
+                android:layout_weight="1"
+                android:contentDescription="Gallery Picture"
+                android:scaleType="centerCrop" />
+
+            <ImageView
+                android:id="@+id/image4"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginEnd="2dp"
+                android:layout_marginBottom="2dp"
+                android:layout_weight="1"
+                android:contentDescription="Gallery Picture"
+                android:scaleType="centerCrop" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/image1"
+            android:layout_width="0dp"
+            android:layout_height="266dp"
+            android:layout_marginBottom="2dp"
+            android:layout_weight="3"
+            android:contentDescription="Big Gallery Picture"
+            android:scaleType="centerCrop" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/image5"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:layout_marginEnd="2dp"
+            android:layout_weight="1"
+            android:contentDescription="Gallery Picture"
+            android:scaleType="centerCrop"
+
+            />
+
+        <ImageView
+            android:id="@+id/image6"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:layout_marginEnd="2dp"
+            android:layout_weight="1"
+            android:contentDescription="Gallery Picture"
+            android:scaleType="centerCrop" />
+
+        <ImageView
+            android:id="@+id/image7"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:layout_marginEnd="2dp"
+            android:layout_weight="1"
+            android:contentDescription="Gallery Picture"
+            android:scaleType="centerCrop" />
+
+        <ImageView
+            android:id="@+id/image8"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:layout_weight="1"
+            android:contentDescription="Gallery Picture"
+            android:scaleType="centerCrop" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/addImageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="15dp"
+        android:paddingHorizontal="30dp"
+        android:paddingVertical="10dp"
+        android:text="Add picture" />
+
+</LinearLayout>
