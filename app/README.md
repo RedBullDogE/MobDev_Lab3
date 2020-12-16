@@ -40,3 +40,11 @@ Was added new fragment displaying the gallery.
 ### Results
 
 [Video with the results for LW5](https://drive.google.com/file/d/1zwopBk-uS0djdkQmlX4ENFrJTto27YMb/view?usp=sharing)
+
+## LW6
+
+Was added new fragment which contains two buttons: Graph and Chart. Each button opens new activity with relevant content.
+
+### Results
+
+[Video with the results for LW6](https://drive.google.com/file/d/1BTIHMV1tWUNDZdz9ukINP7E6msYhAA8j/view?usp=sharing)
