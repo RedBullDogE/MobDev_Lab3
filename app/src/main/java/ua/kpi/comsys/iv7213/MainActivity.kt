@@ -10,6 +10,7 @@ import androidx.viewpager.widget.ViewPager
 import com.google.android.material.tabs.TabLayout
 import ua.kpi.comsys.iv7213.adapters.CustomMovieListAdapter
 import ua.kpi.comsys.iv7213.adapters.ViewPagerAdapter
+import ua.kpi.comsys.iv7213.fragments.DrawingFragment
 import ua.kpi.comsys.iv7213.fragments.GalleryFragment
 import ua.kpi.comsys.iv7213.fragments.MovieListFragment
 
@@ -18,7 +19,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-//        supportActionBar?.hide()
 
         setupTabs()
     }
@@ -53,6 +53,7 @@ class MainActivity : AppCompatActivity() {
         val adapter = ViewPagerAdapter(supportFragmentManager)
         adapter.addFragment(MovieListFragment(), "Movies")
         adapter.addFragment(GalleryFragment(), "Gallery")
+        adapter.addFragment(DrawingFragment(), "Graph")
 
         val viewPager = findViewById<ViewPager>(R.id.viewPager)
         val tabs = findViewById<TabLayout>(R.id.tabs)
@@ -62,6 +63,7 @@ class MainActivity : AppCompatActivity() {
 
         tabs.getTabAt(0)!!.setIcon(R.drawable.ic_baseline_video_library_24)
         tabs.getTabAt(1)!!.setIcon(R.drawable.ic_baseline_perm_media_24)
+        tabs.getTabAt(2)!!.setIcon(R.drawable.ic_baseline_show_chart_24)
     }
 
 }
